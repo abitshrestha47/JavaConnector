@@ -8,7 +8,17 @@ public class Main {
         System.out.println("connection success");
 
         Statement statement=conn.createStatement();
+//        statement.executeUpdate("INSERT INTO check1 (ID, Name)"+ "VALUES ('4', 'test4')");
+//
+//        int rowupdate=statement.executeUpdate("UPDATE check1 SET Name='updated' WHERE ID='4'");
+//        System.out.println(rowupdate+"rows updated");
+
+        int rowdelete=statement.executeUpdate("DELETE FROM check1 where ID='4'");
+        System.out.println(rowdelete+"row deleted");
         ResultSet resultSet=statement.executeQuery("SELECT * from check1");
+
+
+
         System.out.println(resultSet);
 
         System.out.println("ID"+" "+"Name ");
