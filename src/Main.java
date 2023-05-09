@@ -15,7 +15,12 @@ public class Main {
 
         int rowdelete=statement.executeUpdate("DELETE FROM check1 where ID='4'");
         System.out.println(rowdelete+"row deleted");
-        ResultSet resultSet=statement.executeQuery("SELECT * from check1");
+//        ResultSet resultSet=statement.executeQuery("SELECT * from check1");
+
+        PreparedStatement preparedStatement=conn.prepareStatement("SELECT * FROM check1 WHERE Name=? AND ID=?");
+        preparedStatement.setString(1,"test1");
+        preparedStatement.setInt(2,1);
+        ResultSet resultSet=preparedStatement.executeQuery();
 
 
 
